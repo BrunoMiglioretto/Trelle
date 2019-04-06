@@ -7,6 +7,7 @@ body{
     background-color: #202020;
     font-family:  -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
     padding: 20px;
+    width: 800px;
 }
 
 .topo h1{
@@ -16,6 +17,7 @@ body{
 
 .quadros{
     overflow: hidden;
+    width: 1200px;
     height: 75vh;
 }
 
@@ -24,7 +26,7 @@ body{
     border: 2px solid grey;
     width: 280px;
     float: left;
-    padding: 1px 13px 5px 13px;
+    padding: 1px 0px 5px 0px;
     border-radius: 5px;
     margin: 20px;
     height: 100%;
@@ -50,6 +52,6 @@ h2{
     border-bottom: 1px solid lightgrey;
     background-color: #fff;
     width: 92%;
-    padding: 4%;
-    margin: 7px 0px;
+    padding: 4% 0%;
+    margin: 7px 13px 7px 13px;
 }

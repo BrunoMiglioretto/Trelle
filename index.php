@@ -3,7 +3,14 @@
     <head>
         <meta charset="utf-8">
         <title>Trelle</title>
-        <link href="style.css" rel="stylesheet">
+        <!-- CSS -->
+        <link href="css/style.css" rel="stylesheet">
+        <link href="css/OverlayScrollbars.min.css" rel="stylesheet">
+
+        <!-- JavaScript -->
+        <script src="js/jquery.min.js"></script>
+        <script src="js/jquery.overlayScrollbars.min.js"></script>
+    
     </head>
     <body>
         <div class="topo">
@@ -17,7 +24,7 @@
                         <p>Tarefa do Robson Git e GitHub</p>
                     </div>
                     <div class="cartao">
-                        <p>Terefa  </p>
+                        <p>Terefa 1 </p>
                     </div>
                     <div class="cartao">
                         <p>Terefa 2</p>
@@ -38,10 +45,10 @@
                         <p>Terefa 7 </p>
                     </div>
                     <div class="cartao">
-                        <p>Terefa 7 </p>
+                        <p>Terefa 8 </p>
                     </div>
                     <div class="cartao">
-                        <p>Terefa 7 </p>
+                        <p>Terefa 9 </p>
                     </div>
                 </div>
             </div>
@@ -58,5 +65,19 @@
                 </div>
             </div>
         </div>
+        <script>
+            $(document).ready(function() {
+                $(function() {
+                    $('.cartoes').overlayScrollbars({
+                        scrollbars : {
+                            autoHide : "scroll"
+                        }
+                    });
+                    $("body").overlayScrollbars({
+                        className:"os-theme-light"
+                    });
+                })
+            });
+        </script>
     </body>
 </html>
