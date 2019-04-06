@@ -51,13 +51,8 @@ $(document).ready(function() {
             url : "php/quadro1.php"
         }).done(function(cartoes){
             $(".quadro[id='1'] .cartoes").html(cartoes);
-            
-            
             addContextmenu();
-            
-
         });
-
     }
 
     function carregarQuadro2(){
@@ -66,12 +61,8 @@ $(document).ready(function() {
             url : "php/quadro2.php"
         }).done(function(cartoes){
             $(".quadro[id='2'] .cartoes").html(cartoes);
-            
-            
             addContextmenu();
-
         });
-
     }
 
     function carregarQuadro3(){
@@ -80,12 +71,8 @@ $(document).ready(function() {
             url : "php/quadro3.php"
         }).done(function(cartoes){
             $(".quadro[id='3'] .cartoes").html(cartoes);
-            
             addContextmenu();
-            
-
         });
-
     }
 
 // adicionar evento do botão direito nos cartões
@@ -107,6 +94,20 @@ $(document).ready(function() {
             $(".menu").css({"top":`${ev.clientY - 10}px`});
         });
     }
+
+// -------------------- Alertify --------------------// 
+
+    alertify.defaults.transition = "zoom";
+    alertify.defaults.theme = "semantic";
+
+    alertify.confirm().setting({
+        'message'   : "<p>Cartão</p><input type='text'><p>Data de entraga</p><input type='text'>",
+        'title'     : "Novo Cartão",
+        'movable'   : false,
+        'closable'  : false,
+        'reverseButtons' : true
+    }).show();
+
 
 
 

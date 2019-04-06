@@ -6,11 +6,14 @@
         <!-- CSS -->
         <link href="css/style.css" rel="stylesheet">
         <link href="css/OverlayScrollbars.min.css" rel="stylesheet">
+        <link href="css/alertify.min.css" rel="stylesheet">
+        <link href="css/semantic.min.css" rel="stylesheet">
 
         <!-- JavaScript -->
         <script src="js/jquery.min.js"></script>
         <script src="js/jquery.overlayScrollbars.min.js"></script>
         <script src="js/js.js"></script>
+        <script src="js/alertify.min.js"></script>
     
     </head>
     <body>
