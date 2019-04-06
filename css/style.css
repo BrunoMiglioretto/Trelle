@@ -39,6 +39,8 @@ h2{
     margin: 5px;
 }
 
+/* Cartões */
+
 .cartoes{
     margin-top: 15px;
     margin-bottom: 50px;
@@ -47,13 +49,33 @@ h2{
 }
 
 .cartao{
+    position: relative;
     border-radius: 5px;
     border-top: 1px solid lightgrey;
     border-bottom: 1px solid lightgrey;
     background-color: #fff;
-    width: 92%;
-    padding: 4% 0%;
+    width: 87%;
+    padding: 2% 5px 2% 5px;
     margin: 7px 13px 7px 13px;
+    overflow: hidden;
+}
+
+.cartao:hover{
+    background-color: rgb(248, 248, 248);
+}
+
+.data{
+    color: rgb(59, 59, 59);
+    font-size: 14px;
+    float: left;
+}
+
+.dias{
+    position: absolute;
+    right: 10px;
+    bottom: 5px;
+    color: rgb(59, 59, 59);
+    font-size: 14px;
 }
 
 /* Menu do botão direito */
