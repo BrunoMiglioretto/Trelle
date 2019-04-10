@@ -3,37 +3,46 @@ $(document).ready(function() {
     carregarCartoes();
 
 // -------------------- Menu do botão direito --------------------// 
-    $(".menu").addClass("off");
+    $(".cartaoMenu").addClass("off");
     
-    $(".menu").mouseleave(function(){
+    $(".cartaoMenu").mouseleave(function(){
         $(this).addClass("off");
     });
 
     $("li[id='moverFazendo']").click(function(){
         console.log("Movar para Fazendo");
-        $(".menu").addClass("off");
+        $(".cartaoMenu").addClass("off");
     });
 
     $("li[id='moverFeito']").click(function(){
         console.log("Movar para Feito");
-        $(".menu").addClass("off");
+        $(".cartaoMenu").addClass("off");
     });
 
     $("li[id='addCartao']").click(function(){
         console.log("Add Cartão");
-        $(".menu").addClass("off");
+        $(".cartaoMenu").addClass("off");
     });
 
     $("li[id='removeCartao']").click(function(){
         console.log("Remover cartão");
-        $(".menu").addClass("off");
+        $(".cartaoMenu").addClass("off");
     });
 
-    $("li[id='atualizar']").click(function(){
-        carregarQuadro1();
-        console.log("Carregado");
-        $(".menu").addClass("off");
+
+// ------ Quadros -------/
+
+$(".quadroMenu").addClass("off");
+    
+    $(".quadroMenu").mouseleave(function(){
+        $(this).addClass("off");
     });
+
+    $("li[id='QuadroAddCartao']").click(function(){
+        console.log("Add Cartão");
+        $(".quadroMenu").addClass("off");
+    });
+
 
 // -------------------- Ajax --------------------// 
 
@@ -77,6 +86,7 @@ $(document).ready(function() {
 
 // adicionar evento do botão direito nos cartões
     function addContextmenu(){
+        $(".cartao").unbind();
          // Coloca esse evento nos cartoes
         $(".cartao").contextmenu(function(ev){
             
@@ -84,16 +94,23 @@ $(document).ready(function() {
             cartao = $(this).attr("name");
 
             
-
+            console.log(cartao);
 
             
             // É o menu estatico
-            $(".menu").removeClass("off");
             ev.preventDefault();
-            $(".menu").css({"left":`${ev.clientX - 10}px`});
-            $(".menu").css({"top":`${ev.clientY - 10}px`});
+            $(".cartaoMenu").removeClass("off");
+            $(".cartaoMenu").css({"left":`${ev.clientX - 10}px`});
+            $(".cartaoMenu").css({"top":`${ev.clientY - 10}px`});
         });
     }
+
+    $("h2").contextmenu(function(ev) {
+        ev.preventDefault();
+        $(".quadroMenu").removeClass("off");
+        $(".quadroMenu").css({"left":`${ev.clientX - 10}px`});
+        $(".quadroMenu").css({"top":`${ev.clientY - 10}px`});
+    });
 
 // -------------------- Alertify --------------------// 
 

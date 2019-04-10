@@ -43,12 +43,15 @@
 
 <!-- Menu do botão direito -->
 
-        <ul class="menu">
+        <ul class="menu cartaoMenu">
             <li id="moverFazendo">Mover para Fazendo</li>
             <li id="moverFeito">Mover para Feito</li>
             <li id="addCartao">Adicionar cartão</li>
             <li id="removeCartao">Remover cartão</li>
-            <li id="atualizar">Atualizar</li>
+        </ul>
+
+        <ul class="menu quadroMenu">
+            <li id="QuadroAddCartao">Adicionar cartão</li>
         </ul>
 
     </body>
