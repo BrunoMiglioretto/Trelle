@@ -22,19 +22,19 @@
         </div>
         <div class="quadros">
             <div class="quadro" id="1">
-                <h2>A Fazer</h2>
+                <h2 id="1">A Fazer</h2>
                 <div class="cartoes" id="5">
                     
                 </div>
             </div>
             <div class="quadro" id="2">
-                <h2>Fazendo</h2>
+                <h2 id="2">Fazendo</h2>
                 <div class="cartoes">
 
                 </div>
             </div>
             <div class="quadro" id="3">
-                <h2>Feito</h2>
+                <h2 id="3">Feito</h2>
                 <div class="cartoes">
                 
                 </div>
@@ -47,7 +47,6 @@
             <li id="moverAFazer">Mover para a fazer</li>
             <li id="moverFazendo">Mover para Fazendo</li>
             <li id="moverFeito">Mover para Feito</li>
-            <li id="addCartao">Adicionar cartão</li>
             <li id="removeCartao">Remover cartão</li>
         </ul>
 

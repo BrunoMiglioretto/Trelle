@@ -101,3 +101,19 @@ h2{
 .off{
     display: none;
 }
+
+/* Alert form */
+
+.blocoAlert{
+    position: relative;
+    float: left;
+    padding: 20px;
+}
+.tituloAlert{
+    padding-bottom: 10px;
+    font-size: 17px;
+}
+.inputAlert{
+    padding: 2px;
+    width: 200px;
+}

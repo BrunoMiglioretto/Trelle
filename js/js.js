@@ -3,6 +3,7 @@ $(document).ready(function() {
     carregarCartoes();
 
 // -------------------- Menu do botão direito --------------------// 
+// ------ Cartão ------ //
     $(".cartaoMenu").addClass("off");
     
     $(".cartaoMenu").mouseleave(function(){
@@ -59,13 +60,21 @@ $(document).ready(function() {
         $(".cartaoMenu").addClass("off");
     });
 
-    $("li[id='addCartao']").click(function(){
-        console.log("Add Cartão");
-        $(".cartaoMenu").addClass("off");
-    });
+// -- Removar cartão -- //
 
     $("li[id='removeCartao']").click(function(){
         console.log("Remover cartão");
+
+        $.ajax({
+            url : "php/removerCartao.php",
+            method : "POST",
+            data : {
+                idCartao : cartao
+            }
+        }).done(function(){
+            carregarCartoes();
+        });
+
         $(".cartaoMenu").addClass("off");
     });
 
@@ -78,8 +87,13 @@ $(".quadroMenu").addClass("off");
         $(this).addClass("off");
     });
 
+// -- Adicionar cartão -- //
+
     $("li[id='QuadroAddCartao']").click(function(){
         console.log("Add Cartão");
+
+        alertAddCartao();
+        
         $(".quadroMenu").addClass("off");
     });
 
@@ -129,13 +143,8 @@ $(".quadroMenu").addClass("off");
         $(".cartao").unbind();
          // Coloca esse evento nos cartoes
         $(".cartao").contextmenu(function(ev){
-            
-            
             cartao = $(this).attr("name");
-
-            
             console.log(cartao);
-
             
             // É o menu estatico
             ev.preventDefault();
@@ -146,6 +155,7 @@ $(".quadroMenu").addClass("off");
     }
 
     $("h2").contextmenu(function(ev) {
+        quadro = $(this).attr("id");
         ev.preventDefault();
         $(".quadroMenu").removeClass("off");
         $(".quadroMenu").css({"left":`${ev.clientX - 10}px`});
@@ -157,14 +167,37 @@ $(".quadroMenu").addClass("off");
     alertify.defaults.transition = "zoom";
     alertify.defaults.theme = "semantic";
 
-    alertify.confirm().setting({
-        'message'   : "<p>Cartão</p><input type='text'><p>Data de entraga</p><input type='text'>",
-        'title'     : "Novo Cartão",
-        'movable'   : false,
-        'closable'  : false,
-        'reverseButtons' : true
-    }).show();
+    function alertAddCartao(){
+        alertify.confirm("","", function(){
+            mensagem = $("input[id='mensagem']").val();
+            dataEntrega = $("input[id=dataEntrega]").val();
+            adicionarCartao(mensagem,dataEntrega);
+            alertify.success("Adicionado Cartão");
+        },function(){
+            alertify.error("Cancelado");
+        }).setting({
+            'message'   : "<div class='blocoAlert'><p class='tituloAlert'>Cartão</p><input class ='inputAlert' type='text' id='mensagem'></div><div class='blocoAlert'><p class='tituloAlert'>Data de entraga</p><input class = 'inputAlert' type='text' id='dataEntrega'></div>",
+            'title'     : "Novo Cartão",
+            'movable'   : false,
+            'closable'  : false,
+            'reverseButtons' : true
+        }).show();
+    }
 
+    function adicionarCartao(mensagem, dataEntrega){
+        $.ajax({
+            url : "php/adicionarCartaoQuadro.php",
+            method : "POST",
+            data : {
+                mensagem : mensagem,
+                dataEntrega : dataEntrega,
+                quadro : quadro
+            }
+        }).done(function(){
+            carregarCartoes();
+            quadro = 0;
+        });
+    }
 
 
 
