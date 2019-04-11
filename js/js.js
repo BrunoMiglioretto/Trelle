@@ -73,6 +73,7 @@ $(document).ready(function() {
             }
         }).done(function(){
             carregarCartoes();
+            alertify.success("Cartão excluido");
         });
 
         $(".cartaoMenu").addClass("off");

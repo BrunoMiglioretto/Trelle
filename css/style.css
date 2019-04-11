@@ -107,7 +107,7 @@ h2{
 .blocoAlert{
     position: relative;
     float: left;
-    padding: 20px;
+    padding: 7px;
 }
 .tituloAlert{
     padding-bottom: 10px;
@@ -115,7 +115,7 @@ h2{
 }
 .inputAlert{
     padding: 2px;
-    width: 200px;
+    width: 180px;
 }
 
 
