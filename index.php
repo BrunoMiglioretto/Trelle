@@ -8,6 +8,7 @@
         <link href="css/OverlayScrollbars.min.css" rel="stylesheet">
         <link href="css/alertify.min.css" rel="stylesheet">
         <link href="css/semantic.min.css" rel="stylesheet">
+        <link href="css/microtip.css" rel="stylesheet">
 
         <!-- JavaScript -->
         <script src="js/jquery.min.js"></script>
@@ -44,7 +45,7 @@
 <!-- Menu do botão direito -->
 
         <ul class="menu cartaoMenu">
-            <li id="moverAFazer">Mover para a fazer</li>
+            <li id="moverAFazer">Mover para a Fazer</li>
             <li id="moverFazendo">Mover para Fazendo</li>
             <li id="moverFeito">Mover para Feito</li>
             <li id="removeCartao">Remover cartão</li>

@@ -171,12 +171,13 @@ $(".quadroMenu").addClass("off");
         alertify.confirm("","", function(){
             mensagem = $("input[id='mensagem']").val();
             dataEntrega = $("input[id=dataEntrega]").val();
-            adicionarCartao(mensagem,dataEntrega);
+            responsavel = $("input[id=responsavel]").val();
+            adicionarCartao(mensagem, dataEntrega, responsavel);
             alertify.success("Adicionado Cartão");
         },function(){
             alertify.error("Cancelado");
         }).setting({
-            'message'   : "<div class='blocoAlert'><p class='tituloAlert'>Cartão</p><input class ='inputAlert' type='text' id='mensagem'></div><div class='blocoAlert'><p class='tituloAlert'>Data de entraga</p><input class = 'inputAlert' type='text' id='dataEntrega'></div>",
+            'message'   : "<div class='blocoAlert'><p class='tituloAlert'>Cartão</p><input class ='inputAlert' type='text' id='mensagem'></div><div class='blocoAlert'><p class='tituloAlert'>Data de entraga</p><input class = 'inputAlert' type='text' id='dataEntrega'></div><div class='blocoAlert'><p class='tituloAlert'>Responsavel</p><input class = 'inputAlert' type='text' id='responsavel'></div>",
             'title'     : "Novo Cartão",
             'movable'   : false,
             'closable'  : false,
@@ -184,18 +185,19 @@ $(".quadroMenu").addClass("off");
         }).show();
     }
 
-    function adicionarCartao(mensagem, dataEntrega){
+    function adicionarCartao(mensagem, dataEntrega, responsavel){
         $.ajax({
             url : "php/adicionarCartaoQuadro.php",
             method : "POST",
             data : {
                 mensagem : mensagem,
                 dataEntrega : dataEntrega,
-                quadro : quadro
+                quadro : quadro,
+                responsavel : responsavel
             }
-        }).done(function(){
+        }).done(function(n){
+            alert(n);
             carregarCartoes();
-            quadro = 0;
         });
     }
 

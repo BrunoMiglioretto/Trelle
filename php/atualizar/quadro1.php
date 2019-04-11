@@ -13,7 +13,7 @@ foreach($cartao as $carrega){
     $dataF = date('d/m/Y',$data);
 
     echo "
-        <div class='cartao' name='".$carrega["id_cartao"]."'>
+        <div class='cartao' name='".$carrega["id_cartao"]."' aria-label='Responsavel: ".$carrega["responsavel"]."' data-microtip-position='bottom' role='tooltip'>
             <p>".$carrega["mensagem"]."</p>
             <p class='data'>".$dataF."<p>
             <p class='dias'>4 Dias</p>
