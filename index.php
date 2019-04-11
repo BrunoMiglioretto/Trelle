@@ -44,6 +44,7 @@
 <!-- Menu do botão direito -->
 
         <ul class="menu cartaoMenu">
+            <li id="moverAFazer">Mover para a fazer</li>
             <li id="moverFazendo">Mover para Fazendo</li>
             <li id="moverFeito">Mover para Feito</li>
             <li id="addCartao">Adicionar cartão</li>

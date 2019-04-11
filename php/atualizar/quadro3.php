@@ -1,8 +1,8 @@
 <?php
 
-include "conexao.php";
+include "../conexao.php";
 
-$sql = "SELECT * FROM tb_cartao WHERE quadro = 2";
+$sql = "SELECT * FROM tb_cartao WHERE quadro = 3";
 $cartao = $conexao->prepare($sql);
 $cartao->execute();
 

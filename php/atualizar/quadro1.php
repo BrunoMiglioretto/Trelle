@@ -1,6 +1,6 @@
 <?php
 
-include "conexao.php";
+include "../conexao.php";
 
 $sql = "SELECT * FROM tb_cartao WHERE quadro = 1";
 $cartao = $conexao->prepare($sql);

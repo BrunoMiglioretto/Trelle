@@ -9,13 +9,53 @@ $(document).ready(function() {
         $(this).addClass("off");
     });
 
-    $("li[id='moverFazendo']").click(function(){
-        console.log("Movar para Fazendo");
+// -- Movar para A Fazer -- //
+
+    $("li[id='moverAFazer']").click(function(){
+        console.log("Movar para a fazer");
+
+        $.ajax({
+            url : "php/moverCartao/moverAFazer.php",
+            method : "POST",
+            data : {
+                idCartao : cartao
+            }
+        }).done(function(){
+            carregarCartoes();
+        });
+
         $(".cartaoMenu").addClass("off");
     });
 
+// -- Mover para Fazendo --//
+
+    $("li[id='moverFazendo']").click(function(){
+        console.log("Movar para Fazendo");
+        $.ajax({
+            url : "php/moverCartao/moverFazendo.php",
+            method : "POST",
+            data : {
+                idCartao : cartao
+            }
+        }).done(function(){
+            carregarCartoes();
+        });
+        $(".cartaoMenu").addClass("off");
+    });
+
+// -- Mover para Feito -- //
+
     $("li[id='moverFeito']").click(function(){
         console.log("Movar para Feito");
+        $.ajax({
+            url : "php/moverCartao/moverFeito.php",
+            method : "POST",
+            data : {
+                idCartao : cartao
+            }
+        }).done(function(){
+            carregarCartoes();
+        });
         $(".cartaoMenu").addClass("off");
     });
 
@@ -57,7 +97,7 @@ $(".quadroMenu").addClass("off");
     function carregarQuadro1(){
 
         $.ajax({
-            url : "php/quadro1.php"
+            url : "php/atualizar/quadro1.php"
         }).done(function(cartoes){
             $(".quadro[id='1'] .cartoes").html(cartoes);
             addContextmenu();
@@ -67,7 +107,7 @@ $(".quadroMenu").addClass("off");
     function carregarQuadro2(){
 
         $.ajax({
-            url : "php/quadro2.php"
+            url : "php/atualizar/quadro2.php"
         }).done(function(cartoes){
             $(".quadro[id='2'] .cartoes").html(cartoes);
             addContextmenu();
@@ -77,7 +117,7 @@ $(".quadroMenu").addClass("off");
     function carregarQuadro3(){
 
         $.ajax({
-            url : "php/quadro3.php"
+            url : "php/atualizar/quadro3.php"
         }).done(function(cartoes){
             $(".quadro[id='3'] .cartoes").html(cartoes);
             addContextmenu();
