@@ -15,6 +15,7 @@
         <script src="js/jquery.overlayScrollbars.min.js"></script>
         <script src="js/js.js"></script>
         <script src="js/alertify.min.js"></script>
+        <script src="js/pace.js"></script>
     
     </head>
     <body>
