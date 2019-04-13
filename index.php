@@ -9,6 +9,9 @@
         <link href="css/alertify.min.css" rel="stylesheet">
         <link href="css/semantic.min.css" rel="stylesheet">
         <link href="css/microtip.css" rel="stylesheet">
+        <link href="css/jquery-ui.min.css" rel="stylesheet">
+        <link href="css/jquery-ui.structure.min.css" rel="stylesheet">
+        <link href="css/jquery-ui.theme.min.css" rel="stylesheet">
 
         <!-- JavaScript -->
         <script src="js/jquery.min.js"></script>
@@ -16,6 +19,7 @@
         <script src="js/js.js"></script>
         <script src="js/alertify.min.js"></script>
         <script src="js/pace.js"></script>
+        <script src="js/jquery-ui.min.js"></script>
     
     </head>
     <body>

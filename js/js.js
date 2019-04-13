@@ -169,6 +169,7 @@ $(".quadroMenu").addClass("off");
     alertify.defaults.theme = "semantic";
 
     function alertAddCartao(){
+        addDataPicker();
         alertify.confirm("","", function(){
             mensagem = $("input[id='mensagem']").val();
             dataEntrega = $("input[id=dataEntrega]").val();
@@ -178,7 +179,7 @@ $(".quadroMenu").addClass("off");
         },function(){
             alertify.error("Cancelado");
         }).setting({
-            'message'   : "<div class='blocoAlert'><p class='tituloAlert'>Cartão</p><input class ='inputAlert' type='text' id='mensagem'></div><div class='blocoAlert'><p class='tituloAlert'>Data de entraga</p><input class = 'inputAlert' type='text' id='dataEntrega'></div><div class='blocoAlert'><p class='tituloAlert'>Responsavel</p><input class = 'inputAlert' type='text' id='responsavel'></div><script>$('#dataEntrega').datepicker();</script>",
+            'message'   : "<div class='blocoAlert'><p class='tituloAlert'>Cartão</p><input class ='inputAlert' type='text' id='mensagem'></div><div class='blocoAlert'><p class='tituloAlert'>Data de entraga</p><input class = 'inputAlert' type='text' id='dataEntrega'></div><div class='blocoAlert'><p class='tituloAlert'>Responsavel</p><input class = 'inputAlert' type='text' id='responsavel'>",
             'title'     : "Novo Cartão",
             'movable'   : false,
             'closable'  : false,
@@ -201,8 +202,18 @@ $(".quadroMenu").addClass("off");
         });
     }
  
+// -------------------- Data picker --------------------// 
 
-
+    function addDataPicker(){
+        setTimeout(function(){
+            $("#dataEntrega").datepicker({
+                dateFormat: "dd-mm-yy",
+                dayNamesMin: [ "D", "S", "T", "Q", "Q", "S", "S" ],
+                monthNamesShort: [ "Jan", "Fev", "Mar", "Apr", "Mai", "Jun", "Jul", "Aug", "Set", "Out", "Nov", "Dec" ],
+                changeMonth: true
+            });
+        }, 200);
+    }
 
 // -------------------- Overlay Scrollbars --------------------// 
     $(function() {
