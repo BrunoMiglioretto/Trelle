@@ -275,11 +275,13 @@ function mover(numQuadro){
                 var draggable = $(`.cartao[name='${dados[i].idCartao}']`).draggabilly();
                 draggable.on( 'dragStart', function() {
                     cartao = $(this).attr("name");
+                    $(this).css({"z-index" : "999"});
                 });
                 var draggie = draggable.data('draggabilly');
                 draggie.on( 'dragEnd', function(event, pointer){
                     console.log(`X = ${pointer.pageX}, Y = ${pointer.pageY}, cartão = ${cartao}`);
                     movarCartao(pointer.pageX);
+                    $(this).css({"z-index" : "150"});
                 });
             }
         }

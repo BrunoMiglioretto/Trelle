@@ -60,11 +60,12 @@ h2{
     margin: 7px 13px 7px 13px;
     height: 43px;
     display: block;
-    z-index: 999;
+    z-index: 150;
 }
 
 .cartao:hover{
     background-color: rgb(248, 248, 248);
+    z-index: 999;
 }
 
 .data{
@@ -89,7 +90,7 @@ h2{
     border-radius: 5px;
     width: 200px;
     position: absolute;
-    z-index: 9999;
+    z-index: 2000;
 }
 
 .menu li{
