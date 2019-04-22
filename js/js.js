@@ -195,6 +195,10 @@ function definirQuadro(x) {
             $(".cartaoMenu").css({"left":`${ev.clientX - 10}px`});
             $(".cartaoMenu").css({"top":`${ev.clientY - 10}px`});
         });
+
+        $(".cartao").dblclick(function() {
+            alertModificarCartao($(this).attr("name"));
+        });
     }
 
     $("h2").contextmenu(function(ev) {
@@ -207,11 +211,13 @@ function definirQuadro(x) {
 
 // -------------------- Alertify --------------------// 
 
-    alertify.defaults.transition = "zoom";
-    alertify.defaults.theme = "semantic";
+alertify.defaults.transition = "zoom";
+alertify.defaults.theme = "semantic";
 
+// Adicionar Cartão
     function alertAddCartao(){
         addDataPicker();
+        mensagemAlert = "<div class='blocoAlert'><p class='tituloAlert'>Cartão</p><input class ='inputAlert' type='text' id='mensagem'></div><div class='blocoAlert'><p class='tituloAlert'>Data de entraga</p><input class = 'inputAlert' type='text' id='dataEntrega'></div><div class='blocoAlert'><p class='tituloAlert'>Responsavel</p><input class = 'inputAlert' type='text' id='responsavel'>";
         alertify.confirm("","", function(){
             mensagem = $("input[id='mensagem']").val();
             dataEntrega = $("input[id=dataEntrega]").val();
@@ -221,7 +227,7 @@ function definirQuadro(x) {
         },function(){
             alertify.error("Cancelado");
         }).setting({
-            'message'   : "<div class='blocoAlert'><p class='tituloAlert'>Cartão</p><input class ='inputAlert' type='text' id='mensagem'></div><div class='blocoAlert'><p class='tituloAlert'>Data de entraga</p><input class = 'inputAlert' type='text' id='dataEntrega'></div><div class='blocoAlert'><p class='tituloAlert'>Responsavel</p><input class = 'inputAlert' type='text' id='responsavel'>",
+            'message'   : mensagemAlert,
             'title'     : "Novo Cartão",
             'movable'   : false,
             'closable'  : false,
@@ -244,6 +250,54 @@ function definirQuadro(x) {
         });
     }
  
+    // Modificar cartão
+    function alertModificarCartao(cartao){
+        addDataPicker();
+        $.ajax({
+            url : "php/atualizarCartao/pegarDadosCartao.php",
+            method : "POST",
+            data : {
+                cartao : cartao
+            }
+        }).done(function(n) {
+            dadosCartao = JSON.parse(n);
+        });
+
+        setTimeout(function() {
+            mensagemAlertAtt = "<div class='blocoAlert'><p class='tituloAlert'>Cartão</p><input class ='inputAlert' type='text' value='"+ dadosCartao.mensagem +"' id='mensagem'></div><div class='blocoAlert'><p class='tituloAlert'>Data de entraga</p><input class = 'inputAlert' value='"+ dadosCartao.data_entrega +"' type='text' id='dataEntrega'></div><div class='blocoAlert'><p class='tituloAlert'>Responsavel</p><input class = 'inputAlert' value='"+ dadosCartao.responsavel +"' type='text' id='responsavel'>";
+            alertify.confirm("","", function(){
+                mensagem = $("input[id='mensagem']").val();
+                dataEntrega = $("input[id=dataEntrega]").val();
+                responsavel = $("input[id=responsavel]").val();
+                modificarCartao(mensagem, dataEntrega, responsavel, dadosCartao.id_cartao);
+                alertify.success("Cartão atualizado");
+            },function(){
+                alertify.error("Cancelado");
+            }).setting({
+                'message'   : mensagemAlertAtt,
+                'title'     : "Atualizar Cartão",
+                'movable'   : false,
+                'closable'  : false,
+                'reverseButtons' : true
+            }).show();
+        }, 200);
+    }
+
+    function modificarCartao(mensagem, dataEntrega, responsavel, cartao){
+        $.ajax({
+            url : "php/atualizarCartao/atualizarCartao.php",
+            method : "POST",
+            data : {
+                cartao : cartao,
+                mensagem : mensagem,
+                dataEntrega : dataEntrega,
+                responsavel : responsavel
+            }
+        }).done(function(){
+            carregarCartoes();
+        });
+    }
+
 // -------------------- Data picker --------------------// 
 
     function addDataPicker(){
@@ -254,7 +308,7 @@ function definirQuadro(x) {
                 monthNamesShort: [ "Jan", "Fev", "Mar", "Apr", "Mai", "Jun", "Jul", "Aug", "Set", "Out", "Nov", "Dec" ],
                 changeMonth: true
             });
-        }, 200);
+        }, 500);
     }
 
 // -------------------- Draggabilly --------------------// 

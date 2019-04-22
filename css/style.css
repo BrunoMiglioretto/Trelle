@@ -29,7 +29,6 @@ body{
     padding: 1px 0px 5px 0px;
     border-radius: 5px;
     margin: 20px;
-    height: 100%;
 }
 
 h2{
@@ -44,7 +43,7 @@ h2{
 .cartoes{
     position: relative;
     margin-top: 15px;
-    margin-bottom: 50px;
+    margin-bottom: 10px;
     height: 85%;
     overflow: visible;
 }
