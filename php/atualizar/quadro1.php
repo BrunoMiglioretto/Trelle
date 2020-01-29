@@ -1,8 +1,10 @@
 <?php
 
+session_start();
+
 include "../conexao.php";
 
-$sql = "SELECT * FROM tb_cartao WHERE quadro = 1";
+$sql = "SELECT * FROM tb_cartao WHERE quadro = 1 AND id_usuario = ".$_SESSION["id_usuario"]."";
 $cartao = $conexao->prepare($sql);
 $cartao->execute();
 

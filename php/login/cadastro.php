@@ -21,6 +21,13 @@ if ($senha != $confirmarSenha) {
     $AttSenha = $conexao->prepare($queryAttSenha);
     $AttSenha->execute();
 
+    $query = "SELECT id_usuario FROM tb_usuario WHERE nome = '$nome'";
+    $usuario = $conexao->prepare($query);
+    $usuario->execute();
+
+    foreach($usuario as $u) 
+        $_SESSION["id_usuario"] = $u["id_usuario"];
+
     echo "
         <script>
             alert('Bem vindo ao Trelle!');

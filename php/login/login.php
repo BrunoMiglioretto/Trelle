@@ -20,7 +20,7 @@ foreach($usuario as $q) {
 
 
 if($quantidade > 0) { // Caso tenha um usuário com o nome cadastrado
-    $_SESSION["id"] = $id_usuario;
+    $_SESSION["id_usuario"] = $id_usuario;
 
     // Query para verificar se o nome e senha condizem
     $querySenha = "SELECT count(id_usuario) as quantidade FROM tb_usuario WHERE nome = '$nome' AND senha = '$senha'";
