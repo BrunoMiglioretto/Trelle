@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.3
+-- version 4.9.0.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 14-Abr-2019 às 23:05
--- Versão do servidor: 10.1.35-MariaDB
--- versão do PHP: 7.2.9
+-- Generation Time: Jan 29, 2020 at 08:41 PM
+-- Server version: 10.3.16-MariaDB
+-- PHP Version: 7.3.7
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -25,7 +25,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `tb_cartao`
+-- Table structure for table `tb_cartao`
 --
 
 CREATE TABLE `tb_cartao` (
@@ -33,7 +33,20 @@ CREATE TABLE `tb_cartao` (
   `mensagem` varchar(100) DEFAULT NULL,
   `data_entrega` date DEFAULT NULL,
   `quadro` int(11) DEFAULT NULL,
-  `responsavel` varchar(150) DEFAULT NULL
+  `responsavel` varchar(150) DEFAULT NULL,
+  `id_usuario` int(4) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tb_usuario`
+--
+
+CREATE TABLE `tb_usuario` (
+  `id_usuario` int(4) NOT NULL,
+  `nome` varchar(50) DEFAULT NULL,
+  `senha` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -47,6 +60,12 @@ ALTER TABLE `tb_cartao`
   ADD PRIMARY KEY (`id_cartao`);
 
 --
+-- Indexes for table `tb_usuario`
+--
+ALTER TABLE `tb_usuario`
+  ADD PRIMARY KEY (`id_usuario`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -54,7 +73,13 @@ ALTER TABLE `tb_cartao`
 -- AUTO_INCREMENT for table `tb_cartao`
 --
 ALTER TABLE `tb_cartao`
-  MODIFY `id_cartao` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id_cartao` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
+
+--
+-- AUTO_INCREMENT for table `tb_usuario`
+--
+ALTER TABLE `tb_usuario`
+  MODIFY `id_usuario` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
