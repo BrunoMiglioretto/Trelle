@@ -19,13 +19,32 @@ foreach($usuario as $q) {
 }
 
 
-if($quantidade > 0) {
+if($quantidade > 0) { // Caso tenha um usuário com o nome cadastrado
     $_SESSION["id"] = $id_usuario;
-    echo "
-        <script>
-            window.location.href = '../../quadros.php';
-        </script>
-    ";
+
+    // Query para verificar se o nome e senha condizem
+    $querySenha = "SELECT count(id_usuario) as quantidade FROM tb_usuario WHERE nome = '$nome' AND senha = '$senha'";
+    $senha = $conexao->prepare($querySenha);
+    $senha->execute();
+
+    foreach($senha as $s) 
+        $quantidadeSenha = $s["quantidade"];
+
+    if($quantidadeSenha > 0) { 
+        echo "
+            <script>
+                window.location.href = '../../quadros.php';
+            </script>
+        ";
+    } else {
+        echo "
+            <script>
+                alert('Usuário já cadastrado / Senha incorreta');
+                window.location.href = '../../index.html';
+            </script>
+        ";
+    }
+
 } else {
     $queryCadastrar = "INSERT INTO tb_usuario SET nome = '$nome', senha = '2c58v25B25'";
     $cadastro = $conexao->prepare($queryCadastrar);
