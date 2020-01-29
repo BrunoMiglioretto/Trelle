@@ -27,7 +27,7 @@
     <body>
         <div class="topo">
             <h1>Trelle</h1>
-            <a href="#" class="btn-sair" id="btn-sair">Sair</a>
+            <a href="php/sair.php" class="btn-sair" id="btn-sair">Sair</a>
         </div>
         <div class="quadros">
             <div class="quadro" id="1">
