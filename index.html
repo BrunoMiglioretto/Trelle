@@ -1,8 +1,9 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pr-bt">
     <head>
         <meta charset="utf-8">
         <title>Trelle</title>
+        <link rel = "icon" href ="img/T.jpg" type = "image/x-icon"> 
         <!-- CSS -->
         <link href="css/style.css" rel="stylesheet">
         <link href="css/OverlayScrollbars.min.css" rel="stylesheet">
@@ -21,45 +22,30 @@
         <script src="js/jquery-ui.min.js"></script>
         <script src="https://unpkg.com/draggabilly@2/dist/draggabilly.pkgd.min.js"></script>
         <script src="js/js.js"></script>
-    
     </head>
     <body>
         <div class="topo">
             <h1>Trelle</h1>
         </div>
-        <div class="quadros">
-            <div class="quadro" id="1">
-                <h2 id="1">A Fazer</h2>
-                <div class="cartoes" id="5">
-                    
-                </div>
-            </div>
-            <div class="quadro" id="2">
-                <h2 id="2">Fazendo</h2>
-                <div class="cartoes">
 
-                </div>
+        <div class="login">
+            <div class="titulo">
+                <h1>Entrar/Cadastrar</h1>
             </div>
-            <div class="quadro" id="3">
-                <h2 id="3">Feito</h2>
-                <div class="cartoes">
-                
+            <form action="">
+                <div class="form">
+                    <div>
+                        <label for="nome">Nome</label><br>
+                        <input type="text" id="nome" name="nome">
+                    </div>
+                    <div>
+                        <label for="senha">Senha</label><br>
+                        <input type="password" id="senha" name="senha">
+                    </div>
+                    <input type="submit" value="Entrar" class="btn-login">
                 </div>
-            </div>
+            </form>
         </div>
-
-<!-- Menu do botão direito -->
-
-        <ul class="menu cartaoMenu">
-            <li id="moverAFazer">Mover para a Fazer</li>
-            <li id="moverFazendo">Mover para Fazendo</li>
-            <li id="moverFeito">Mover para Feito</li>
-            <li id="removeCartao">Remover cartão</li>
-        </ul>
-
-        <ul class="menu quadroMenu">
-            <li id="QuadroAddCartao">Adicionar cartão</li>
-        </ul>
 
     </body>
 </html>
